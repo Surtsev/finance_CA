@@ -1,14 +1,14 @@
 [project]
-name = "finance-ca"
+name = "finance"
 version = "0.1.0"
-description = "Add your description here"
+description = "Finance application which support to control your money. UI via telegram, Python for backend."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "aioredis>=2.0.1",
     "alembic>=1.17.2",
     "fastapi>=0.123.5",
     "httpx>=0.28.1",
-    "redis>=7.2.0",
     "sqlalchemy>=2.0.44",
     "telethon>=1.42.0",
 ]
