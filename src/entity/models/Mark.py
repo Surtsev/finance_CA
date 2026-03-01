@@ -1,6 +1,6 @@
 from enum import Enum
 
-import models
+from . import Card
 
 
 class Types(Enum):
@@ -15,15 +15,22 @@ class Mark:
     with the ability to specify which bank accounts and which amounts are part of this goal.
     """
 
+    _id: int
     _name: str
     _type: Types
     _current: int
     _required: int
-    _cards: list[models.Card]
+    _cards: list[Card]
 
     def __init__(
-        self, name: str, current: int, cards: list[models.Card] = [], required: int = 0
+        self,
+        mid: int,
+        name: str,
+        current: int,
+        cards: list[Card] = [],
+        required: int = 0,
     ):
+        self._id = mid
         self._name = name
         self._current = current
         self._cards = cards
@@ -32,6 +39,9 @@ class Mark:
 
     def is_goal(self):
         return self._type
+
+    def get_id(self) -> int:
+        return self._id
 
     def get_name(self) -> str:
         return self._name
@@ -42,5 +52,14 @@ class Mark:
     def get_required(self) -> int:
         return self._required
 
-    def get_cards(self) -> list[models.Card]:
+    def get_cards(self) -> list[Card]:
         return self._cards
+
+    def set_current(self, value):
+        self._current += value
+
+    def add_card(self, card: Card):
+        self._cards.append(card)
+
+    def delete_card(self, card: Card):
+        self._cards = [c for c in self._cards if c.get_name() != card.get_name()]
