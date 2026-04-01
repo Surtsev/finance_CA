@@ -1,13 +1,16 @@
 from src.entity.repositories.mark_repository import MarkRepository
 from src.entity.models import Mark, Card
 
-from typing import Union
+from src.config.types import Money
+from src.config.errors import MarkAlreadyExistsError
 
 class CreateMarkUseCase:
     def __init__(self, repository: MarkRepository):
         self._repository = repository
     
-    def execute(self, name: str, current: Union[int, float], cards: list[Card] = [], required: int = 0) -> Mark:
+    def execute(self, name: str, current: Money = 0, cards: list[Card] = [], required: int = 0) -> Mark:
         mark = Mark(name, current, cards, required)
-        self._repository.save(mark)
+        if self._repository.get_by_name(name) is not None:
+            raise MarkAlreadyExistsError(f"Mark '{name}' already exists")
+        self._repository.add(mark)
         return mark

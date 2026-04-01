@@ -1,2 +1,2 @@
-from .card import *
-from .mark import Mark, Types
+from .card import Card
+from .mark import Mark 

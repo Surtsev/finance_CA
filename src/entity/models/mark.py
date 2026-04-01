@@ -1,12 +1,8 @@
-from enum import Enum
-from typing import Union
+from src.config.types import Money, MarkTypes
 
 from . import Card
 
 
-class Types(Enum):
-    MARK = 0
-    GOAL = 1
 
 
 class Mark:
@@ -16,17 +12,16 @@ class Mark:
     with the ability to specify which bank accounts and which amounts are part of this goal.
     """
 
-    _id: int
     _name: str
-    _type: Types
-    _current: Union[int, float]
+    _type: MarkTypes
+    _current: Money
     _required: int
     _cards: list[Card]
 
     def __init__(
         self,
         name: str,
-        current: Union[int, float],
+        current: Money,
         cards: list[Card] = [],
         required: int = 0,
     ):
@@ -34,15 +29,15 @@ class Mark:
         self._current = current
         self._cards = cards
         self._required = required
-        self._type = Types.GOAL if self._required > 0 else Types.MARK
+        self._type = MarkTypes.GOAL if self._required > 0 else MarkTypes.MARK
 
     def is_goal(self):
-        return self._type
+        return self._type == MarkTypes.GOAL
 
     def get_name(self) -> str:
         return self._name
 
-    def get_current(self) -> Union[int, float]:
+    def get_current(self) -> Money:
         return self._current
 
     def get_required(self) -> int:
@@ -57,18 +52,18 @@ class Mark:
                 return card
         raise ValueError(f"Card '{card_name}' not found")
 
-    def set_current(self, value):
+    def set_current(self, value: Money):
         self._current += value
 
     def add_card(self, card: Card):
         self._cards.append(card)
 
-    def update_card(self, card_name: str, card_value: Union[int, float]):
+    def update_card(self, card: Card):
         for i, c in enumerate(self._cards):
-            if c.get_name() == card_name:
-                self._cards[i].set_value(card_value)
+            if c.get_name() == card.get_name():
+                self._cards[i].set_value(card.get_value())
                 return
-        raise ValueError(f"Card '{card_name}' not found")
+        raise ValueError(f"Card '{card.get_name()}' not found")
 
     def delete_card(self, card: Card):
         self._cards = [c for c in self._cards if c.get_name() != card.get_name()]

@@ -1,14 +1,27 @@
-from src.entity.models import Mark, Card
-from typing import Union
+from src.entity.models import Mark
+from abc import ABC, abstractmethod
 
-class MarkRepository:
-    def __init__(self):
+class MarkRepository(ABC):
+    @abstractmethod
+    async def add(self, mark: Mark):
+        pass
+    
+    @abstractmethod
+    async def update(self, mark: Mark):
+        pass
+    
+    @abstractmethod
+    async def delete(self, mark: Mark):
+        pass
+    
+    @abstractmethod
+    async def get_by_name(self, name: str) -> Mark:
+        pass
+
+    @abstractmethod
+    async def get_all(self) -> list[Mark]:
         pass
         
-    def save(self, mark: Mark):
-        pass
-        
-    def get_by_name(self, name: str):
-        pass
-        
+
+
         
