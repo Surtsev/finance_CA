@@ -5,13 +5,22 @@ description = "Finance application which support to control your money. UI via t
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "aioredis>=2.0.1",
     "alembic>=1.17.2",
+    "asyncpg>=0.31.0",
     "fastapi>=0.123.5",
     "httpx>=0.28.1",
     "pydantic>=2.12.5",
     "pydantic-settings>=2.13.1",
     "pytest>=9.0.2",
+    "redis>=5.0.0",
     "sqlalchemy>=2.0.44",
     "telethon>=1.42.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest-asyncio==0.24.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
