@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+.direnv/
+.qwen/
+.vscode/
+
 # Distribution / packaging
 .Python
 build/
