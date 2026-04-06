@@ -3,16 +3,16 @@ from typing import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 
-from src.config import settings
-from src.entity.repositories.mark_repository import MarkRepository
-from src.infra.adapters.redis_cache import CacheService
-from src.infra.adapters.redis_client import redis_client
-from src.infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
-from src.infra.gateways.mark_gateway import CachedMarkGateway
+from config import settings
+from entity.repositories.mark_repository import MarkRepository
+from infra.adapters.redis_cache import CacheService
+from infra.adapters.redis_client import redis_client
+from infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
+from infra.gateways.mark_gateway import CachedMarkGateway
 
 
 engine = create_async_engine(
-    settings.DATABASE_URL,
+    settings.database_url,
     echo=settings.DEBUG,
     future=True,
 )

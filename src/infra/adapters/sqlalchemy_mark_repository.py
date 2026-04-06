@@ -1,9 +1,9 @@
 from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.entity.models import Mark, Card
-from src.entity.repositories.mark_repository import MarkRepository
-from src.infra.models import Mark as MarkModel, Card as CardModel
+from entity.models import Mark, Card
+from entity.repositories.mark_repository import MarkRepository
+from infra.models import Mark as MarkModel, Card as CardModel
 
 
 def _to_domain_mark(model: MarkModel) -> Mark:

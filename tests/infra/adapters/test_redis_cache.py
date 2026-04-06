@@ -2,9 +2,9 @@ import json
 import pytest
 from unittest.mock import AsyncMock
 
-from src.infra.adapters.redis_cache import CacheService
-from src.infra.adapters.redis_client import RedisClient
-from src.infra.cache_keys import CacheKeys
+from infra.adapters.redis_cache import CacheService
+from infra.adapters.redis_client import RedisClient
+from infra.cache_keys import CacheKeys
 
 
 @pytest.fixture

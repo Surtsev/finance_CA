@@ -1,7 +1,7 @@
-from src.entity.models import Card, Mark
-from src.entity.repositories.mark_repository import MarkRepository
-from src.config.types import Money
-from src.config.errors import MarkNotFoundError
+from entity.models import Card, Mark
+from entity.repositories.mark_repository import MarkRepository
+from config.types import Money
+from config.errors import MarkNotFoundError
 
 class UpdateCardUseCase:
     def __init__(self, repository: MarkRepository):

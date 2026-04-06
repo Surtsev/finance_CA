@@ -1,10 +1,10 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from src.usecases.create_mark import CreateMarkUseCase
-from src.entity.models import Mark
+from usecases.create_mark import CreateMarkUseCase
+from entity.models import Mark
 
-from src.config.errors import MarkAlreadyExistsError
+from config.errors import MarkAlreadyExistsError
 
 class TestCreateMarkUseCase:
     async def test_create_mark(self):

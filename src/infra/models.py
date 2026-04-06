@@ -3,7 +3,7 @@ from sqlalchemy import Enum as SQLEnum
 from sqlalchemy import Float, ForeignKey, Integer, String
 from sqlalchemy.orm import declarative_base, relationship
 
-from src.config.types import MarkTypes
+from config.types import MarkTypes
 
 Base = declarative_base()
 

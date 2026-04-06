@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from src.usecases.delete_mark import DeleteMarkUseCase
-from src.entity.models import Mark
-from src.config.errors import MarkNotFoundError
+from usecases.delete_mark import DeleteMarkUseCase
+from entity.models import Mark
+from config.errors import MarkNotFoundError
 
 
 class TestDeleteMarkUseCase:

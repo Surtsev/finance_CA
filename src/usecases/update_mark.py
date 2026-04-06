@@ -1,9 +1,9 @@
-from src.entity.models import Mark, Card
-from src.entity.repositories.mark_repository import MarkRepository
-from src.usecases.update_card import UpdateCardUseCase
-from src.usecases.update_mark_current import UpdateMarkCurrentUseCase
-from src.config.types import Money
-from src.config.errors import MarkNotFoundError
+from entity.models import Mark, Card
+from entity.repositories.mark_repository import MarkRepository
+from usecases.update_card import UpdateCardUseCase
+from usecases.update_mark_current import UpdateMarkCurrentUseCase
+from config.types import Money
+from config.errors import MarkNotFoundError
 
 from typing import Union
 

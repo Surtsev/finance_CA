@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import AsyncMock, MagicMock
 
-from src.infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
-from src.infra.models import Mark as MarkModel, Card as CardModel
-from src.entity.models import Mark, Card
+from infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
+from infra.models import Mark as MarkModel, Card as CardModel
+from entity.models import Mark, Card
 
 
 @pytest.fixture

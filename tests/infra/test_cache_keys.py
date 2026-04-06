@@ -1,6 +1,6 @@
 import pytest
 
-from src.infra.cache_keys import CacheKeys
+from infra.cache_keys import CacheKeys
 
 
 class TestCacheKeys:

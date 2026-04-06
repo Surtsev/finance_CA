@@ -1,7 +1,7 @@
 import pytest
 
-from src.entity.models import Card, Mark
-from src.config.types import MarkTypes as Types
+from entity.models import Card, Mark
+from config.types import MarkTypes as Types
 
 
 def test_goal_create():

@@ -1,8 +1,8 @@
 import pytest
 from sqlalchemy import inspect
 
-from src.infra.models import Base, Mark as MarkModel, Card as CardModel
-from src.config.types import MarkTypes
+from infra.models import Base, Mark as MarkModel, Card as CardModel
+from config.types import MarkTypes
 
 
 class TestMarkModel:

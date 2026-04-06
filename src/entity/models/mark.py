@@ -1,4 +1,4 @@
-from src.config.types import Money, MarkTypes
+from config.types import Money, MarkTypes
 
 from . import Card
 

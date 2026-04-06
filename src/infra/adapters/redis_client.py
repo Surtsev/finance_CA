@@ -1,6 +1,6 @@
 from redis.asyncio import Redis
 
-from src.config.settings import settings
+from config.settings import settings
 
 
 class RedisClient:

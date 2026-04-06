@@ -1,10 +1,10 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from src.infra.gateways.mark_gateway import CachedMarkGateway
-from src.infra.adapters.redis_cache import CacheService
-from src.infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
-from src.entity.models import Mark, Card
+from infra.gateways.mark_gateway import CachedMarkGateway
+from infra.adapters.redis_cache import CacheService
+from infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
+from entity.models import Mark, Card
 
 
 @pytest.fixture

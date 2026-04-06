@@ -1,7 +1,7 @@
-from src.entity.models import Mark, Card
-from src.entity.repositories.mark_repository import MarkRepository
+from entity.models import Mark, Card
+from entity.repositories.mark_repository import MarkRepository
 
-from src.config.errors import MarkNotFoundError
+from config.errors import MarkNotFoundError
 
 class DeleteCardFromMarkUseCase:
     def __init__(self, repository: MarkRepository):
@@ -11,6 +11,8 @@ class DeleteCardFromMarkUseCase:
         mark = await self._repository.get_by_name(mark_name)
         if mark is None:
             raise MarkNotFoundError(f"Mark '{mark_name}' not found")
+        if mark.get_card(card.get_name()) is None:
+            raise CardNotFoundError(f"Card '{card.get_name()}' not found")
         mark.delete_card(card)
         await self._repository.update(mark)
         return mark

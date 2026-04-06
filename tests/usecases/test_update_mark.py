@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from src.usecases.update_mark import UpdateMarkUseCase
-from src.entity.models import Mark, Card
-from src.config.errors import MarkNotFoundError
+from usecases.update_mark import UpdateMarkUseCase
+from entity.models import Mark, Card
+from config.errors import MarkNotFoundError
 
 
 class TestUpdateMarkUseCase:

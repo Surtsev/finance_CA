@@ -1,8 +1,8 @@
-from src.entity.models import Mark
-from src.entity.repositories.mark_repository import MarkRepository
+from entity.models import Mark
+from entity.repositories.mark_repository import MarkRepository
 
-from src.config.types import Money
-from src.config.errors import MarkNotFoundError
+from config.types import Money
+from config.errors import MarkNotFoundError
 
 from typing import Union
 

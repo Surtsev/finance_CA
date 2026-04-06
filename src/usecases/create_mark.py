@@ -1,8 +1,8 @@
-from src.entity.repositories.mark_repository import MarkRepository
-from src.entity.models import Mark, Card
+from entity.repositories.mark_repository import MarkRepository
+from entity.models import Mark, Card
 
-from src.config.types import Money
-from src.config.errors import MarkAlreadyExistsError
+from config.types import Money
+from config.errors import MarkAlreadyExistsError
 
 class CreateMarkUseCase:
     def __init__(self, repository: MarkRepository):

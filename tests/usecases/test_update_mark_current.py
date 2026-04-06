@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from src.usecases.update_mark_current import UpdateMarkCurrentUseCase
-from src.entity.models import Mark
-from src.config.errors import MarkNotFoundError
+from usecases.update_mark_current import UpdateMarkCurrentUseCase
+from entity.models import Mark
+from config.errors import MarkNotFoundError
 
 
 class TestUpdateMarkCurrentUseCase:

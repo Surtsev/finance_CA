@@ -1,4 +1,4 @@
-from src.config.types import Money
+from config.types import Money
 
 class Card:
     """

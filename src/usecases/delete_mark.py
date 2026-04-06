@@ -1,7 +1,7 @@
-from src.entity.models import Mark
-from src.entity.repositories.mark_repository import MarkRepository
+from entity.models import Mark
+from entity.repositories.mark_repository import MarkRepository
 
-from src.config.errors import MarkNotFoundError
+from config.errors import MarkNotFoundError
 
 class DeleteMarkUseCase:
     def __init__(self, repository: MarkRepository):

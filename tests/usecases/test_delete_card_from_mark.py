@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from src.usecases.delete_card_from_mark import DeleteCardFromMarkUseCase
-from src.entity.models import Mark, Card
-from src.config.errors import MarkNotFoundError
+from usecases.delete_card_from_mark import DeleteCardFromMarkUseCase
+from entity.models import Mark, Card
+from config.errors import MarkNotFoundError
 
 class TestDeleteCardFromMarkUseCase:
     async def test_delete_card_from_mark(self):

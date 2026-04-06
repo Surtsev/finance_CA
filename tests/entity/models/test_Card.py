@@ -1,6 +1,6 @@
 import pytest
 
-from src.entity.models import Card
+from entity.models import Card
 
 
 def test_card_create():

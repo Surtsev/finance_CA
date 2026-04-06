@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import AsyncMock, patch, MagicMock
 
-from src.infra.adapters.redis_client import RedisClient
+from infra.adapters.redis_client import RedisClient
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ class TestRedisClient:
 
     @pytest.mark.asyncio
     async def test_connect_creates_redis_instance(self, redis_client):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
 
@@ -30,7 +30,7 @@ class TestRedisClient:
 
     @pytest.mark.asyncio
     async def test_disconnect_closes_and_clears_redis(self, redis_client):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
 
@@ -47,7 +47,7 @@ class TestRedisClient:
 
     @pytest.mark.asyncio
     async def test_set(self, redis_client):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
             await redis_client.connect()
@@ -58,7 +58,7 @@ class TestRedisClient:
 
     @pytest.mark.asyncio
     async def test_get(self, redis_client):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
             mock_instance.get.return_value = "value"
@@ -71,7 +71,7 @@ class TestRedisClient:
 
     @pytest.mark.asyncio
     async def test_get_returns_none(self, redis_client):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
             mock_instance.get.return_value = None
@@ -83,7 +83,7 @@ class TestRedisClient:
 
     @pytest.mark.asyncio
     async def test_delete(self, redis_client):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
             await redis_client.connect()
@@ -94,7 +94,7 @@ class TestRedisClient:
 
     @pytest.mark.asyncio
     async def test_delete_pattern_deletes_matching_keys(self, redis_client):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
             mock_instance.keys.return_value = ["mark:1", "mark:2"]
@@ -109,7 +109,7 @@ class TestRedisClient:
     async def test_delete_pattern_does_nothing_when_no_keys_match(
         self, redis_client
     ):
-        with patch("src.infra.adapters.redis_client.Redis") as mock_redis:
+        with patch("infra.adapters.redis_client.Redis") as mock_redis:
             mock_instance = AsyncMock()
             mock_redis.from_url.return_value = mock_instance
             mock_instance.keys.return_value = []

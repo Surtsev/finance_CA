@@ -16,6 +16,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN uv sync --no-dev
 
 COPY src/ ./src/
+COPY alembic/ ./alembic/
+COPY alembic.ini ./
 
 RUN uv pip install --no-deps -e .
 

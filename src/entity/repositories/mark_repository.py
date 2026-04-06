@@ -1,4 +1,4 @@
-from src.entity.models import Mark
+from entity.models import Mark
 from abc import ABC, abstractmethod
 
 class MarkRepository(ABC):

@@ -1,8 +1,8 @@
-from src.entity.models import Mark
-from src.entity.repositories.mark_repository import MarkRepository
-from src.infra.adapters.redis_cache import CacheService
-from src.infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
-from src.infra.cache_keys import CacheKeys
+from entity.models import Mark
+from entity.repositories.mark_repository import MarkRepository
+from infra.adapters.redis_cache import CacheService
+from infra.adapters.sqlalchemy_mark_repository import SQLAlchemyMarkRepository
+from infra.cache_keys import CacheKeys
 
 
 class CachedMarkGateway(MarkRepository):
@@ -78,7 +78,7 @@ class CachedMarkGateway(MarkRepository):
 
     @staticmethod
     def _reconstruct_mark(data: dict) -> Mark:
-        from src.entity.models import Card
+        from entity.models import Card
 
         cards = [Card(name=c["name"], value=c["value"]) for c in data["cards"]]
         return Mark(
