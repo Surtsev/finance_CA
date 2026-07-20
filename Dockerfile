@@ -6,19 +6,18 @@ WORKDIR /app
 
 COPY pyproject.toml uv.lock ./
 
-RUN uv venv venv
-
-ENV UV_PROJECT_ENVIRONMENT=/opt/venv
 RUN uv venv /opt/venv
 
+ENV UV_PROJECT_ENVIRONMENT=/opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
+ENV PYTHONPATH="/app"
 
 RUN uv sync --no-dev
 
-COPY src/ ./src/
-COPY alembic/ ./alembic/
-COPY alembic.ini ./
+COPY . .
+
+RUN chmod -R 755 /app
 
 RUN uv pip install --no-deps -e .
 
-CMD ["uv", "run", "src/main.py"]
+CMD ["python", "src/main.py"]

@@ -52,9 +52,6 @@ services:
       REDIS_URL: redis://redis:6379/0
     ports:
       - "3002:8000"
-    volumes:
-      - ./src:/app/src
-    command: sh -c "alembic upgrade head && uv run src/main.py"
     restart: unless-stopped
     networks:
       - finance_network

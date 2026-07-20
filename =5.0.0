@@ -1,4 +1,0 @@
-Resolved 1 package in 467ms
-Prepared 1 package in 202ms
-Installed 1 package in 2ms
- + redis==7.4.0
